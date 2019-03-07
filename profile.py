@@ -7,7 +7,17 @@ request = rspec.Request()
 
 
 params = pc.bindParameters()
+tourDescription = \
+"""
+Testing Spark cluster environment
+"""
 
+#
+# Setup the Tour info with the above description and instructions.
+#
+tour = IG.Tour()
+tour.Description(IG.Tour.TEXT,tourDescription)
+request.addTour(tour)
 
 # Create a link with type LAN
 link = request.LAN("lan")
