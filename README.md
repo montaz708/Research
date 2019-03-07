@@ -1,2 +1,2 @@
 # Research
-A repository for some of the things I may or may not be interested in
+A CloudLab profile for my independent research project at WCU.
