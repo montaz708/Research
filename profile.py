@@ -23,7 +23,7 @@ request.addTour(tour)
 link = request.LAN("lan")
 
 # Generate the nodes
-for i in range(2):
+for i in range(3):
     node = request.RawPC("node" + str(i))
     node.disk_image = "urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU16-64-STD"
     iface = node.addInterface("if" + str(i))
@@ -48,12 +48,12 @@ for i in range(2):
     if i != 0:
         node.addService(rspec.Execute(shell="/bin/sh",
                                       command="sudo sleep 30"))
-        node.addService(rspec.Execute(shell="/bin/sh",
-                                      command="sudo /opt/spark-2.4.0-bin-hadoop2.7/sbin/start-master.sh"))
+        # node.addService(rspec.Execute(shell="/bin/sh",
+                                      # command="sudo /opt/spark-2.4.0-bin-hadoop2.7/sbin/start-master.sh"))
     else:
         node.routable_control_ip = True
     
-node.addService(rspec.Execute(shell="/bin/sh", command="sudo /opt/spark-2.4.0-bin-hadoop2.7/sbin/start-slaves.sh"))
+# node.addService(rspec.Execute(shell="/bin/sh", command="sudo /opt/spark-2.4.0-bin-hadoop2.7/sbin/start-slaves.sh"))
 
 # Print the RSpec to the enclosing page.
 portal.context.printRequestRSpec(request)
